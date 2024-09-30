@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3jgxkc6lmtiy"]
+
+[ext_resource type="Script" path="res://UI/chess_pad.gd" id="1_agidp"]
+
+[node name="ChessPad" type="HBoxContainer"]
+offset_right = 132.0
+offset_bottom = 128.0
+script = ExtResource("1_agidp")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+columns = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="Turn" type="Label" parent="MarginContainer/Panel"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 40
+text = "123"
+horizontal_alignment = 1
