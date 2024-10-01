@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=1320
 window/size/viewport_height=1280
-window/size/resizable=false
 window/size/always_on_top=true
-window/stretch/aspect="ignore"
+window/stretch/mode="canvas_items"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

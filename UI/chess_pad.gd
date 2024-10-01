@@ -19,7 +19,7 @@ const player_signs : Dictionary = {
 func _ready() -> void:
 	grid_container.columns = COLUMN
 	creat_chess_board(COLUMN, ROW)
-	print(get_rect().size)
+
 	
 func creat_chess_board(x: int, y: int) -> void:
 	for i in range(x * y):
