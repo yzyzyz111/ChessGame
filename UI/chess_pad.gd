@@ -10,6 +10,7 @@ signal has_winner
 const GRID = preload("res://UI/grid.tscn")
 const COLUMN = 8
 const ROW = 8
+const WAIT = 0.34
 const player_signs : Dictionary = {
 	"black" : "X" ,
 	"white" : "O" ,
@@ -18,6 +19,7 @@ const player_signs : Dictionary = {
 func _ready() -> void:
 	grid_container.columns = COLUMN
 	creat_chess_board(COLUMN, ROW)
+	print(get_rect().size)
 	
 func creat_chess_board(x: int, y: int) -> void:
 	for i in range(x * y):
@@ -48,7 +50,7 @@ func get_chess_grid(index: int) -> String:
 	return grid_container.get_child(index).player
 	
 func reset_grid(indexs: Array) -> void:
-	var timer = get_tree().create_timer(0.1)
+	var timer = get_tree().create_timer(WAIT)
 	timer.timeout.connect(reset_grid_wait.bind(indexs))
 	
 func reset_grid_wait(indexs: Array) -> void:
@@ -57,7 +59,7 @@ func reset_grid_wait(indexs: Array) -> void:
 		chess_node.player = ""
 		chess_node.button.text = ""
 		chess_node.button.disabled = false
-	
+		
 	var winner = check_winner()
 	if winner != "":
 		turn.text = "Winner\n is : \n%s" % winner
@@ -80,5 +82,6 @@ func check_winner() -> String:
 			winner = "white"
 		else:
 			winner = "black"
+	
 	print("white left : %s\nblack left : %s " % [white_chess_num, black_chess_num])
 	return winner
